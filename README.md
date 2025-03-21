@@ -2,10 +2,6 @@
 
 Create AWS IAM Identity Center groups, users, and group membership with Terraform.
 
-## Prerequisites
-
-- [Enable Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html)
-
 ## Module Inputs
 ```hcl
 module "idc_users_and_groups" {
