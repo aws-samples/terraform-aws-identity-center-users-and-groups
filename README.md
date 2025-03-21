@@ -2,6 +2,8 @@
 
 Create AWS IAM Identity Center groups, users, and group membership with Terraform.
 
+This pattern is twinned with [terraform-aws-identity-center](https://github.com/aws-samples/terraform-aws-identity-center).
+
 ## Module Inputs
 ```hcl
 module "idc_users_and_groups" {
@@ -17,7 +19,7 @@ Example [groups.yml](./examples/groups.yml) and [users.yml](./examples/users.yml
 
 ## Permission sets and account assignments 
 
-This pattern does not create permission sets and account assignments. If you want to do this, use this pattern: [idc-with-terraform](https://github.com/aws-samples/identity-center-with-terraform)
+This pattern does not create permission sets and account assignments. If you want to do this, use this pattern: [terraform-aws-identity-center](https://github.com/aws-samples/terraform-aws-identity-center).
 
 We have deliberately segregated the two patterns:
 
