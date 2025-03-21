@@ -1,4 +1,4 @@
-# identity-center-users-and-groups-with-terraform
+# terraform-aws-identity-center-users-and-groups
 
 Create AWS IAM Identity Center groups, users, and group membership with Terraform.
 
@@ -9,9 +9,10 @@ Create AWS IAM Identity Center groups, users, and group membership with Terrafor
 ## Module Inputs
 ```hcl
 module "idc_users_and_groups" {
-  source = "github.com/aws-samples/identity-center-users-and-groups-with-terraform"
-  groups = "./groups.yml"
-  users  = "./users.yml"
+  source  = "aws-samples/identity-center-users-and-groups/aws"
+  version = "1.0.0"
+  groups  = "./groups.yml"
+  users   = "./users.yml"
   }
 ```
 Groups, users, and group membership are defined using yaml templates. The module then handles the heavy lifting. 
@@ -32,9 +33,7 @@ We have deliberately segregated the two patterns:
 ## Related Resources 
 
 - [AWS IAM Identity User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
-- [Resource: aws_identitystore_use](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/identitystore_user)
-- [Resource: aws_identitystore_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/identitystore_group)
-- [Resource: aws_identitystore_group_membership](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/identitystore_group_membership)
+- [Terraform Registry](https://registry.terraform.io/modules/aws-samples/identity-center-users-and-groups/aws/latest) 
 
 ## Security
 See [CONTRIBUTING](./CONTRIBUTING.md) for more information.
