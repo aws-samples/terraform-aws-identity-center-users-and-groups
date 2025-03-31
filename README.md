@@ -31,7 +31,7 @@ We have deliberately segregated the two patterns:
 ## Related Resources 
 
 - [AWS IAM Identity User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
-- [Terraform Registry](https://registry.terraform.io/modules/aws-samples/identity-center-users-and-groups/aws/latest) 
+- [Terraform Registry: aws-samples/identity-center-users-and-groups/aws](https://registry.terraform.io/modules/aws-samples/identity-center-users-and-groups/aws/latest) 
 
 ## Security
 See [CONTRIBUTING](./CONTRIBUTING.md) for more information.
