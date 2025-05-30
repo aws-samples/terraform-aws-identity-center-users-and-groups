@@ -2,11 +2,12 @@
 # SPDX-License-Identifier: MIT-0
 
 variable "groups" {
-  type = string
+  type    = string
   default = null
 }
 
 variable "users" {
-  type = string
+  type    = string
   default = null
 }
+
