@@ -11,7 +11,7 @@ module "idc_users_and_groups" {
   version = "1.0.0"
   groups  = "./groups.yml"
   users   = "./users.yml"
-  }
+}
 ```
 Groups, users, and group membership are defined using yaml templates. The module then handles the heavy lifting. 
 
