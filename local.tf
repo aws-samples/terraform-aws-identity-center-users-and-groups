@@ -16,4 +16,9 @@ locals {
 
   users_yaml = var.users != null ? file(var.users) : ""
   users_list = local.users_yaml != "" ? yamldecode(local.users_yaml) : {}
+
+  existing_usernames = var.users == null ? distinct([
+    for group in local.groups_flatten : group.user
+  ]) : []
 }
+
