@@ -7,11 +7,10 @@ locals {
 
   groups_flatten = flatten([
     for group_name, group_details in local.groups_list : [
-      for user in group_details.users :
-      {
+      for user in group_details.users : {
         user  = user
         group = group_name
-      }
+      } if user != null && user != ""
     ]
   ])
 

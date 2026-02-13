@@ -6,4 +6,11 @@
   users: ["test-user", "test-user2", "test-user3", "test-user4"]
 "group2":
   description: "test description"
-  users: ["test-user"]
+  users:
+    - user1
+    - user2
+    - user3
+"group3":
+  description: "test description"
+  users: [""]
+
