@@ -17,16 +17,19 @@ Groups, users, and group membership are defined using yaml templates. The module
 
 Example [groups.yml](./examples/groups.yml) and [users.yml](./examples/users.yml) . 
 
+### Optional inputs
+```hcl
+module "idc_users_and_groups" {
+  ...
+  identity_store_id = "d-1234567890" // or tolist(data.aws_ssoadmin_instances.this.identity_store_ids)[0] 
+  }
+```
+
+`identity_store_id` is the identity store id. [Data Source: aws_ssoadmin_instances](https://registry.terraform.io/providers/hashicorp/awS/latest/docs/data-sources/ssoadmin_instances) can be used to fetch it. This optional input will likely become mandatory in a future build as it helps reduce the opportunity for unecessary resource refreshes. 
+
 ## Permission sets and account assignments 
 
-This pattern does not create permission sets and account assignments. If you want to do this, use this pattern: [terraform-aws-identity-center](https://github.com/aws-samples/terraform-aws-identity-center).
-
-We have deliberately segregated the two patterns:
-
-- You may be using an external IdP
-- You may be planning to use an external IdP and want to build a pattern that can be de-coupled in the future
-- At scale, any explicit or implicit dependencies (depends_on) between account assignments and group membership can have unintended consequences.
-  - Example: with a dependency, adding a user to a group can cause terraform to refresh all account assignments that feature that group (into the 100s or 1000s depending on the scale of your AWS Organization).
+This pattern does not create permission sets and account assignments. If you want to do this, use this pattern: [terraform-aws-identity-center](https://github.com/aws-samples/terraform-aws-identity-center). The modules are de-coupled to account for customers who use an external IdP. 
 
 ## Related Resources 
 
