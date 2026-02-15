@@ -20,5 +20,7 @@ locals {
   existing_usernames = var.users == null ? distinct([
     for group in local.groups_flatten : group.user
   ]) : []
+
+  identity_store_id = length(var.identity_store_id) > 0 ? var.identity_store_id : tolist(data.aws_ssoadmin_instances.this.identity_store_ids)[0]
 }
 

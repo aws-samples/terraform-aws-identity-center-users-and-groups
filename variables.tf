@@ -6,6 +6,12 @@ variable "groups" {
   default = null
 }
 
+variable "identity_store_id" {
+  description = "eg d-1234567890"
+  type        = string
+  default     = ""
+}
+
 variable "users" {
   type    = string
   default = null
