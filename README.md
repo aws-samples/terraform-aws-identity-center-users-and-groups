@@ -8,25 +8,16 @@ This pattern is twinned with [terraform-aws-identity-center](https://github.com/
 ```hcl
 module "idc_users_and_groups" {
   source  = "aws-samples/identity-center-users-and-groups/aws"
-  version = "1.1.0"
+  version = "1.1.1"
   groups  = "./groups.yml"
   users   = "./users.yml"
 }
 ```
-Groups, users, and group membership are defined using yaml templates. The module then handles the heavy lifting. 
-
-Example [groups.yml](./examples/groups.yml) and [users.yml](./examples/users.yml) . 
+Groups, users, and group membership are defined using yaml templates. These module inputs should point at the yaml file location. Example [groups.yml](./examples/groups.yml) and [users.yml](./examples/users.yml) . 
 
 ## Permission sets and account assignments 
 
-This pattern does not create permission sets and account assignments. If you want to do this, use this pattern: [terraform-aws-identity-center](https://github.com/aws-samples/terraform-aws-identity-center).
-
-We have deliberately segregated the two patterns:
-
-- You may be using an external IdP
-- You may be planning to use an external IdP and want to build a pattern that can be de-coupled in the future
-- At scale, any explicit or implicit dependencies (depends_on) between account assignments and group membership can have unintended consequences.
-  - Example: with a dependency, adding a user to a group can cause terraform to refresh all account assignments that feature that group (into the 100s or 1000s depending on the scale of your AWS Organization).
+Permission sets and account assignments can be created with: [terraform-aws-identity-center](https://github.com/aws-samples/terraform-aws-identity-center). The modules are de-coupled for AWS customers using an external Identity Provider (IdP). 
 
 ## Related Resources 
 
