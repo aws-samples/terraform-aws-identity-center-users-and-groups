@@ -25,7 +25,7 @@ module "idc_users_and_groups" {
   }
 ```
 
-`identity_store_id` is the identity store id. [Data Source: aws_ssoadmin_instances](https://registry.terraform.io/providers/hashicorp/awS/latest/docs/data-sources/ssoadmin_instances) can be used to fetch it. This optional input will likely become mandatory in a future build as it helps reduce the opportunity for unecessary resource refreshes. 
+`identity_store_id` is the identity store id. [Data Source: aws_ssoadmin_instances](https://registry.terraform.io/providers/hashicorp/awS/latest/docs/data-sources/ssoadmin_instances) can be used to fetch it. This optional input will likely become mandatory in a future build as it reduces unecessary resource refreshes. 
 
 ## Permission sets and account assignments 
 
