@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT-0
 
 locals {
-  groups_yaml = var.groups != null ? file(var.groups) : ""
+  groups_yaml = var.groups != null ? (can(regex("\\.tpl$", var.groups)) ? templatefile(var.groups, var.template_variables) : file(var.groups)) : ""
   groups_list = local.groups_yaml != "" ? yamldecode(local.groups_yaml) : {}
 
   groups_flatten = flatten([
@@ -14,7 +14,7 @@ locals {
     ]
   ])
 
-  users_yaml = var.users != null ? file(var.users) : ""
+  users_yaml = var.users != null ? (can(regex("\\.tpl$", var.users)) ? templatefile(var.users, var.template_variables) : file(var.users)) : ""
   users_list = local.users_yaml != "" ? yamldecode(local.users_yaml) : {}
 
   existing_usernames = var.users == null ? distinct([
