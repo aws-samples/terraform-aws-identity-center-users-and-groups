@@ -14,7 +14,8 @@ resource "aws_identitystore_user" "this" {
   }
 
   emails {
-    value = lower(each.value.email)
+    value   = lower(each.value.email)
+    primary = true
   }
 }
 
