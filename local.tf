@@ -18,7 +18,7 @@ locals {
 
   existing_usernames = var.users == null ? distinct([
     for group in local.groups_flatten : group.user
-  ]) : distinct([
+    ]) : distinct([
     for group in local.groups_flatten : group.user
     if !contains(keys(local.users_list), group.user)
   ])
