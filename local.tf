@@ -4,7 +4,6 @@
 locals {
   groups_yaml = var.groups != null ? file(var.groups) : ""
   groups_list = local.groups_yaml != "" ? yamldecode(local.groups_yaml) : {}
-
   groups_flatten = flatten([
     for group_name, group_details in local.groups_list : [
       for user in group_details.users : {
@@ -19,6 +18,8 @@ locals {
 
   existing_usernames = var.users == null ? distinct([
     for group in local.groups_flatten : group.user
-  ]) : []
+    ]) : distinct([
+    for group in local.groups_flatten : group.user
+    if !contains(keys(local.users_list), group.user)
+  ])
 }
-
