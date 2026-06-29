@@ -11,3 +11,9 @@ variable "users" {
   default = null
 }
 
+variable "template_variables" {
+  description = "Variables to substitute in yaml templates (.yml.tpl and .yaml.tpl files)"
+  type        = map(any)
+  default     = {}
+}
+
