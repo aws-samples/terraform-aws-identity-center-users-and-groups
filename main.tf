@@ -14,7 +14,7 @@ resource "aws_identitystore_user" "this" {
 
   emails {
     value   = lower(each.value.email)
-    primary = true
+    primary = var.set_email_as_primary
   }
 }
 

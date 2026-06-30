@@ -8,12 +8,22 @@ This pattern is twinned with [terraform-aws-identity-center](https://github.com/
 ```hcl
 module "idc_users_and_groups" {
   source  = "aws-samples/identity-center-users-and-groups/aws"
-  version = "1.1.1"
+  version = "1.1.x"
   groups  = "./groups.yml"
   users   = "./users.yml"
 }
 ```
 Groups, users, and group membership are defined using yaml templates. These module inputs should point at the yaml file location. Example [groups.yml](./examples/groups.yml) and [users.yml](./examples/users.yml) . 
+
+### Optional Inuts
+```hcl
+module "idc_users_and_groups" {
+  ...
+  set_email_as_primary = true
+}
+```
+
+`set_email_as_primary` sets this as the primary email. This is required for SCIM with external Identity Providers (IdPs).
 
 ## Permission sets and account assignments 
 
