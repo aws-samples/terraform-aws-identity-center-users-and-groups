@@ -11,3 +11,7 @@ variable "users" {
   default = null
 }
 
+variable "set_email_as_primary" {
+  type    = bool
+  default = true
+}
