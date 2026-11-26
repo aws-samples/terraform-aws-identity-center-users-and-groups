@@ -8,7 +8,7 @@ This pattern is twinned with [terraform-aws-identity-center](https://github.com/
 ```hcl
 module "idc_users_and_groups" {
   source  = "aws-samples/identity-center-users-and-groups/aws"
-  version = "1.1.x"
+  version = "~> 1.1"
   groups  = "./groups.yml"
   users   = "./users.yml"
 }
@@ -24,10 +24,6 @@ module "idc_users_and_groups" {
 ```
 
 `set_email_as_primary` sets this as the primary email. This is required for SCIM with external Identity Providers (IdPs).
-
-## Permission sets and account assignments 
-
-Permission sets and account assignments can be created with: [terraform-aws-identity-center](https://github.com/aws-samples/terraform-aws-identity-center). The modules are de-coupled for AWS customers using an external Identity Provider (IdP). 
 
 ## Related Resources 
 
